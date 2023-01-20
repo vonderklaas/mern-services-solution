@@ -1,12 +1,4 @@
 import { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFileCirclePlus,
-  faFilePen,
-  faUserGear,
-  faUserPlus,
-  faRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useSendLogoutMutation } from '../features/auth/authApiSlice';
 import useAuth from '../hooks/useAuth';
@@ -18,10 +10,8 @@ const USERS_REGEX = /^\/dash\/users(\/)?$/;
 
 export const Header = () => {
   const { isManager, isAdmin } = useAuth();
-
-  const navigate = useNavigate();
   const { pathname } = useLocation();
-
+  const navigate = useNavigate();
   const [sendLogout, { isLoading, isSuccess, isError, error }] =
     useSendLogoutMutation();
 
@@ -45,55 +35,27 @@ export const Header = () => {
 
   let newNoteButton = null;
   if (NOTES_REGEX.test(pathname)) {
-    newNoteButton = (
-      <button
-        className='icon-button'
-        title='New Note'
-        onClick={onNewNoteClicked}
-      >
-        <FontAwesomeIcon icon={faFileCirclePlus} />
-      </button>
-    );
+    newNoteButton = <button onClick={onNewNoteClicked}>New Note</button>;
   }
 
   let newUserButton = null;
   if (USERS_REGEX.test(pathname)) {
-    newUserButton = (
-      <button
-        className='icon-button'
-        title='New User'
-        onClick={onNewUserClicked}
-      >
-        <FontAwesomeIcon icon={faUserPlus} />
-      </button>
-    );
+    newUserButton = <button onClick={onNewUserClicked}>Create New User</button>;
   }
 
   let userButton = null;
   if (isManager || isAdmin) {
     if (!USERS_REGEX.test(pathname) && pathname.includes('/dash')) {
-      userButton = (
-        <button className='icon-button' title='Users' onClick={onUsersClicked}>
-          <FontAwesomeIcon icon={faUserGear} />
-        </button>
-      );
+      userButton = <button onClick={onUsersClicked}>Users Settings</button>;
     }
   }
 
   let notesButton = null;
   if (!NOTES_REGEX.test(pathname) && pathname.includes('/dash')) {
-    notesButton = (
-      <button className='icon-button' title='Notes' onClick={onNotesClicked}>
-        <FontAwesomeIcon icon={faFilePen} />
-      </button>
-    );
+    notesButton = <button onClick={onNotesClicked}>Notes</button>;
   }
 
-  const logoutButton = (
-    <button className='icon-button' title='Logout' onClick={sendLogout}>
-      <FontAwesomeIcon icon={faRightFromBracket} />
-    </button>
-  );
+  const logoutButton = <button onClick={sendLogout}>Logout</button>;
 
   const errClass = isError ? 'errmsg' : 'offscreen';
 
@@ -112,7 +74,7 @@ export const Header = () => {
     );
   }
 
-  const content = (
+  return (
     <>
       <p className={errClass}>{error?.data?.message}</p>
 
@@ -126,6 +88,4 @@ export const Header = () => {
       </header>
     </>
   );
-
-  return content;
 };
