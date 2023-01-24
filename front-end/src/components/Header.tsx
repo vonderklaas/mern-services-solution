@@ -76,8 +76,8 @@ export const Header = () => {
 
   return (
     <>
+      {/* @ts-ignore */}
       <p className={errClass}>{error?.data?.message}</p>
-
       <header className='dash-header'>
         <div className={`dash-header__container ${dashClass}`}>
           <Link to='/dash'>

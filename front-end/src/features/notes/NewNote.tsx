@@ -5,14 +5,14 @@ import PulseLoader from 'react-spinners/PulseLoader';
 const NewNote = () => {
   const { users } = useGetUsersQuery('usersList', {
     selectFromResult: ({ data }) => ({
-      users: data?.ids.map((id) => data?.entities[id]),
+      users: data?.ids.map((id: string) => data?.entities[id]),
     }),
   });
 
-  if (!users?.length) return <PulseLoader color={'#FFF'} />;
+  if (!users?.length) {
+    return <PulseLoader color={'#FFF'} />;
+  }
 
-  const content = <NewNoteForm users={users} />;
-
-  return content;
+  return <NewNoteForm users={users} />;
 };
 export default NewNote;

@@ -34,20 +34,11 @@ const NewNoteForm = ({ users }) => {
     }
   };
 
-  const options = users.map((user) => {
-    return (
-      <option key={user.id} value={user.id}>
-        {' '}
-        {user.username}
-      </option>
-    );
-  });
-
   const errClass = isError ? 'errmsg' : 'offscreen';
   const validTitleClass = !title ? 'form__input--incomplete' : '';
   const validTextClass = !text ? 'form__input--incomplete' : '';
 
-  const content = (
+  return (
     <>
       <p className={errClass}>{error?.data?.message}</p>
 
@@ -95,13 +86,17 @@ const NewNoteForm = ({ users }) => {
           value={userId}
           onChange={onUserIdChanged}
         >
-          {options}
+          {users.map((user) => {
+            return (
+              <option key={user.id} value={user.id}>
+                {user.username}
+              </option>
+            );
+          })}
         </select>
       </form>
     </>
   );
-
-  return content;
 };
 
 export default NewNoteForm;

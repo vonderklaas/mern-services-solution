@@ -67,15 +67,6 @@ const EditUserForm = ({ user }) => {
     await deleteUser({ id: user.id });
   };
 
-  const options = Object.values(ROLES).map((role) => {
-    return (
-      <option key={role} value={role}>
-        {' '}
-        {role}
-      </option>
-    );
-  });
-
   let canSave;
   if (password) {
     canSave =
@@ -94,7 +85,7 @@ const EditUserForm = ({ user }) => {
 
   const errContent = (error?.data?.message || delerror?.data?.message) ?? '';
 
-  const content = (
+  return (
     <>
       <p className={errClass}>{errContent}</p>
 
@@ -161,12 +152,16 @@ const EditUserForm = ({ user }) => {
           value={roles}
           onChange={onRolesChanged}
         >
-          {options}
+          {Object.values(ROLES).map((role) => {
+            return (
+              <option key={role} value={role}>
+                {role}
+              </option>
+            );
+          })}
         </select>
       </form>
     </>
   );
-
-  return content;
 };
 export default EditUserForm;

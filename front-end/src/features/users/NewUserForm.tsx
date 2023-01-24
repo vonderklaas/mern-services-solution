@@ -56,15 +56,6 @@ const NewUserForm = () => {
     }
   };
 
-  const options = Object.values(ROLES).map((role) => {
-    return (
-      <option key={role} value={role}>
-        {' '}
-        {role}
-      </option>
-    );
-  });
-
   const errClass = isError ? 'errmsg' : 'offscreen';
   const validUserClass = !validUsername ? 'form__input--incomplete' : '';
   const validPwdClass = !validPassword ? 'form__input--incomplete' : '';
@@ -72,7 +63,7 @@ const NewUserForm = () => {
     ? 'form__input--incomplete'
     : '';
 
-  const content = (
+  return (
     <>
       <p className={errClass}>{error?.data?.message}</p>
 
@@ -116,16 +107,20 @@ const NewUserForm = () => {
           name='roles'
           className={`form__select ${validRolesClass}`}
           multiple={true}
-          size='3'
+          size={3}
           value={roles}
           onChange={onRolesChanged}
         >
-          {options}
+          {Object.values(ROLES).map((role) => {
+            return (
+              <option key={role} value={role}>
+                {role}
+              </option>
+            );
+          })}
         </select>
       </form>
     </>
   );
-
-  return content;
 };
 export default NewUserForm;

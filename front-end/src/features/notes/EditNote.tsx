@@ -30,8 +30,6 @@ const EditNote = () => {
     }
   }
 
-  const content = <EditNoteForm note={note} users={users} />;
-
-  return content;
+  return <EditNoteForm note={note} users={users} />;
 };
 export default EditNote;

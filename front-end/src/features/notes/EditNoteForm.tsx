@@ -67,7 +67,6 @@ const EditNoteForm = ({ note, users }) => {
   const options = users.map((user) => {
     return (
       <option key={user.id} value={user.id}>
-        {' '}
         {user.username}
       </option>
     );
@@ -84,7 +83,7 @@ const EditNoteForm = ({ note, users }) => {
     deleteButton = <button onClick={onDeleteNoteClicked}>Delete</button>;
   }
 
-  const content = (
+  return (
     <>
       <p className={errClass}>{errContent}</p>
 
@@ -170,8 +169,6 @@ const EditNoteForm = ({ note, users }) => {
       </form>
     </>
   );
-
-  return content;
 };
 
 export default EditNoteForm;

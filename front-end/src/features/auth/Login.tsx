@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, ReactElement } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setCredentials } from './authSlice';
@@ -7,8 +7,6 @@ import usePersist from '../../hooks/usePersist';
 import PulseLoader from 'react-spinners/PulseLoader';
 
 export const Login = () => {
-  const userRef = useRef();
-  const errRef = useRef();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
@@ -17,10 +15,13 @@ export const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const userRef = useRef<React.MutableRefObject<HTMLElement>>();
+  const errRef = useRef<React.MutableRefObject<HTMLElement>>();
+
   const [login, { isLoading }] = useLoginMutation();
 
   useEffect(() => {
-    userRef.current.focus();
+    userRef?.current?.focus();
   }, []);
 
   useEffect(() => {

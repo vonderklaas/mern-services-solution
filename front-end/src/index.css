@@ -1,103 +1,25 @@
-/* :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
-/* || VARIABLES */
-
+/* Colors */
 :root {
-  /* COLORS */
   --BGCOLOR: #485269;
-  --BORDER-COLOR: #fff;
-  --COLOR: #fff;
-  --ERROR: firebrick;
+  --BORDER-COLOR: white;
+  --COLOR: white;
+  --ERROR: orangered;
   --INACTIVE: lightgray;
   --LINK-COLOR: whitesmoke;
-  --LINK-HOVER: rgba(245, 245, 245, 0.9);
-  --NOTE-BGCOLOR: hsla(240, 64%, 27%, 0.65);
-  --STATUS-COMPLETE: limegreen;
-  --STATUS-OPEN: firebrick;
-  --TABLE-BGCOLOR: #fff;
-  --TABLE-COLOR: #000;
-  --INPUT-INVALID: #f00;
+  --LINK-HOVER: green;
+  --NOTE-BGCOLOR: navy;
+  --STATUS-COMPLETE: green;
+  --STATUS-OPEN: orangered;
+  --TABLE-BGCOLOR: white;
+  --TABLE-COLOR: black;
+  --INPUT-INVALID: orangered;
 }
 
-/* || UTILITY CLASSES */
+/* Utilities */
+.offscreen {
+  margin: 0;
+}
+
 .errmsg {
   display: inline-block;
   background-color: var(--TABLE-BGCOLOR);
@@ -135,8 +57,7 @@ button:focus-visible {
   visibility: hidden;
 }
 
-/* || GENERAL STYLES */
-
+/* General */
 body {
   font-family: 'Share Tech Mono', monospace;
   min-height: 100vh;
@@ -146,6 +67,9 @@ body {
   background-size: cover;
   background-position: top right;
   background-blend-mode: multiply;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 input,
@@ -156,7 +80,6 @@ select {
 }
 
 #root {
-  /* React root div */
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
@@ -175,8 +98,7 @@ a:focus-visible {
   color: var(--LINK-HOVER);
 }
 
-/* || PAGES */
-
+/* Pages */
 .public,
 .welcome {
   display: flex;
@@ -205,8 +127,7 @@ a:focus-visible {
   content: '➜ ';
 }
 
-/* || DASH HEADER, CONTAINER & FOOTER */
-
+/* Dashboard */
 .dash-header {
   position: sticky;
   top: 0;
@@ -259,8 +180,7 @@ a:focus-visible {
   height: auto;
 }
 
-/* || TABLES - GENERAL */
-
+/* Tables */
 thead,
 tbody,
 tr {
@@ -305,8 +225,7 @@ tr {
   background-color: var(--INACTIVE);
 }
 
-/* ||  NOTE */
-
+/* Note */
 .note__created,
 .note__updated,
 .note__username {
@@ -325,8 +244,7 @@ tr {
   color: var(--STATUS-COMPLETE);
 }
 
-/* || FORM - GENERAL */
-
+/* Forms */
 .form {
   display: flex;
   flex-flow: column nowrap;
@@ -400,6 +318,7 @@ tr {
   gap: 0.5em;
 }
 
+/* Media */
 @media screen and (max-width: 400px) {
   h1 {
     font-size: 2rem;
@@ -445,23 +364,3 @@ tr {
     position: static;
   }
 }
-
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 2.5rem;
-}
-
-body {
-  min-height: 100vh;
-  background-color: #000;
-  color: whitesmoke;
-  display: grid;
-  place-content: center;
-  padding: 1rem;
-} */

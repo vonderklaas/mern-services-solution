@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGetUsersQuery } from './usersApiSlice';
 import { memo } from 'react';
 
-const User = ({ userId }) => {
+const User = ({ userId }: { userId: string }) => {
   const { user } = useGetUsersQuery('usersList', {
     selectFromResult: ({ data }) => ({
       user: data?.entities[userId],
@@ -29,7 +29,9 @@ const User = ({ userId }) => {
         </td>
       </tr>
     );
-  } else return null;
+  } else {
+    return null;
+  }
 };
 
 const memoizedUser = memo(User);

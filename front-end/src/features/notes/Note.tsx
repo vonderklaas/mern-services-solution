@@ -45,7 +45,9 @@ const Note = ({ noteId }) => {
         </td>
       </tr>
     );
-  } else return null;
+  } else {
+    return null;
+  }
 };
 
 const memoizedNote = memo(Note);
