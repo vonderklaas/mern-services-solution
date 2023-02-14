@@ -4,19 +4,19 @@ This is a complex full-stack MERN application, which is created as a management 
 
 ### How to run?
 
-1 - CLONE PROJECT
+Clone project
 
 ```
 git clone <PROJECT URL>
 ```
 
-2 - INSTALL PACKAGES
+Install packages and dependencies
 
 ```
 npm i
 ```
 
-3 - ENTER VARIABLES
+Add environmental variables
 
 ```
 PORT=
@@ -26,13 +26,13 @@ ACCESS_TOKEN_SECRET=
 REFRESH_TOKEN_SECRET=
 ```
 
-4 - RUN SERVER (back-end folder)
+Run server (back-end folder)
 
 ```
 npm run dev
 ```
 
-5 - RUN CLIENT (front-end folder)
+Run client (front-end folder)
 
 ```
 npm run dev
