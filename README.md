@@ -1,6 +1,6 @@
-### Management Platform
+### MERN Solution Services
 
-This is a complex full-stack MERN application, which is created as a management solution for small services, with ability to register employees, manage tasks, assign roles, statuses and much more!
+A full-stack MERN application, created as a management solution for small services, with ability to register employees, create tickets, track progress, assign roles and much more.
 
 ### How to run?
 
